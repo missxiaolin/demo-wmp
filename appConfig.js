@@ -2,6 +2,7 @@ module.exports = {
   "pages": [
     "pages/main/main",
     "pages/userCenter/index",
+    "pages/index/index",
     "pages/community/community"
   ],
   "requiredPrivateInfos": [
