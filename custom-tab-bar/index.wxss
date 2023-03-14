@@ -1,0 +1,47 @@
+.tab-ul {
+  width: 100%;
+  height: 130rpx;
+  display: flex;
+  flex-direction: row;
+  background-image: url("https://guidedog.oss-cn-hangzhou.aliyuncs.com/tab_20230216.png");
+  background-size: 100% 100%;
+}
+
+.tab-ul .item {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.tab-ul .item .icon {
+  width: 34rpx;
+  height: 32rpx;
+}
+
+.tab-ul .item:nth-child(2) .icon {
+  width: 40rpx;
+  height: 26rpx;
+}
+
+.tab-ul .item:nth-child(3) .icon {
+  width: 24rpx;
+  height: 30rpx;
+}
+
+.tab-ul .item text {
+  font-size: 26rpx;
+  font-family: PingFang SC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #918F90;
+  margin-top: 7rpx;
+}
+
+.tab-ul .item .active {
+  font-size: 26rpx;
+  font-family: PingFang SC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #FEAA48;
+}

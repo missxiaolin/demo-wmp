@@ -1,0 +1,22 @@
+{
+  "name": "dog-wmp",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eslintrc.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node ./build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@codeup.aliyun.com:63e4fa89ba23e3cae1fa1634/dog-wmp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "file-save": "^0.2.0"
+  }
+}

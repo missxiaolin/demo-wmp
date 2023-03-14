@@ -1,0 +1,11 @@
+/**app.wxss**/
+.container {
+  background: #f5f5f5;
+} 
+
+button::before,
+button::after {
+    outline: none;
+    border: none;
+    display: none;
+}
