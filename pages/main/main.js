@@ -1,6 +1,9 @@
+import loginBehavior from '../../behaviors/login-behavior'
+
 const app = getApp();
 
 Page({
+  behaviors: [loginBehavior],
   data: {
     user: ''
   },
@@ -10,6 +13,7 @@ Page({
     }
   },
   onLoad(options) {
+    console.log(this.data.userInfo)
     app.setWatcher(this)
     setTimeout(() => {
       this.setData({
