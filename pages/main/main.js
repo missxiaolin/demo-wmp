@@ -2,10 +2,20 @@ const app = getApp();
 
 Page({
   data: {
-    
+    user: ''
+  },
+  watch: {
+    user: (newVal, old) => {
+      console.log(newVal, old)
+    }
   },
   onLoad(options) {
-    
+    app.setWatcher(this)
+    setTimeout(() => {
+      this.setData({
+        user: 1
+      })
+    }, 2000)
   },
 
   onShow() {
