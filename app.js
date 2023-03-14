@@ -1,3 +1,4 @@
+require('./pack/page_extends') // 拓展Page构造函数
 const watch = require("./pack/watch");
 
 App({
