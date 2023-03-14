@@ -8,8 +8,6 @@ if (_env !== "release") {
   env = "test";
 }
 
-env = 'prd'
-
 export {
   env
 };
