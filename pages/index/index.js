@@ -29,7 +29,7 @@ Page({
     // 发布订阅模拟
     // this.$$emit('testEvent','这里是首页的button')
     // 预加载第二个页面数据 方案1
-    // this.$route('pageB/index/index',{a: 1},true)
+    this.$route('pageB/index/index',{a: new Date().valueOf()},true)
     // 预加载第二个页面数据 方案2
     // this.$preload('pageB/index/index', {a: 1})
     // wx.navigateTo({

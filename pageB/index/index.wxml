@@ -1,2 +1,5 @@
+<view>
 <!--pageB/index/index.wxml-->
 <text>pageB/index/index.wxml</text>
+<text>{{time}}</text>
+</view>

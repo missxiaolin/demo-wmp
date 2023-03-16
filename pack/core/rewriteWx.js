@@ -134,7 +134,7 @@ function rewritePage() {
         data[key] + '&' + query;
       }
       url = url + `${query.length?'?'+query:query}`
-      if (getCurrentPages().length > 9) {
+      if (getCurrentPages().length < 9) {
         wx.navigateTo({
           url,
           ...options

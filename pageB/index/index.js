@@ -4,13 +4,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    time: ""
   },
   registerPreload(e) {
     console.log(e)
+    this.$setState({
+      time: e.a
+    })
+    
     setTimeout(() => {
       console.log(`页面B预加载请求完成`)
-    }, 2000)
+      
+    }, 0)
   },
   
 
