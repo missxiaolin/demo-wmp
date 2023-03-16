@@ -71,7 +71,7 @@ function rewritePage() {
         console.error('注册预加载方法必须同时设置页面路径，同路由跳转url')
       } else {
         allPagePreloadMap[options['path']] = options['registerPreload'].bind(options);
-        //检查是否已经有该页面的预加载请求调用被缓存
+        // 检查是否已经有该页面的预加载请求调用被缓存
         if (waitRunPreload && waitRunPreload.path == options['path']) {
           waitRunPreload.run(allPagePreloadMap[options['path']])
           waitRunPreload = null;
@@ -80,7 +80,7 @@ function rewritePage() {
     }
 
 
-    //封装setData，建议只在预加载方法中使用,如果页面已经创建，数据直接更新到data，否则存储到缓存中
+    // 封装setData，建议只在预加载方法中使用,如果页面已经创建，数据直接更新到data，否则存储到缓存中
     options['$setState'] = function () {
       const pageInstance = getCurrentPages()[getCurrentPages().length - 1];
       if (pageInstance.route == this.path) {
@@ -97,7 +97,7 @@ function rewritePage() {
       }
     }
 
-    //预加载页面数据
+    // 预加载页面数据
     options['$preload'] = async function (path, data = {}) {
       allPreloadDateMap[path] = {};
       //在已经调用下个页面预加载请求但该页面所在分包未加载的情况下，缓存path和参数
@@ -116,7 +116,7 @@ function rewritePage() {
     options["$route"] = function (url, data = {}, isPreload = false, options = {}) {
       if (isPreload) {
         allPreloadDateMap[url] = {};
-        //在已经调用下个页面预加载请求但该页面所在分包未加载的情况下，缓存path和参数
+        // 在已经调用下个页面预加载请求但该页面所在分包未加载的情况下，缓存path和参数
         if (allPagePreloadMap[url]) {
           allPagePreloadMap[url](data);
         } else {

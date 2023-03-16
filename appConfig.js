@@ -1,8 +1,9 @@
 module.exports = {
   "pages": [
+    "pages/index/index",
+    "pageB/index/index",
     "pages/main/main",
     "pages/userCenter/index",
-    "pages/index/index",
     "pages/community/community"
   ],
   "requiredPrivateInfos": [
