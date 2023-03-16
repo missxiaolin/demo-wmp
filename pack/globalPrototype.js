@@ -1,4 +1,12 @@
 export default {
+  toast(title, duration = 2000) { //toast 提示
+    wx.showToast({
+      title,
+      icon: 'none',
+      mask: true,
+      duration
+    })
+  },
   //函数截流
   throttle(fn, gapTime) {
     if (gapTime == null || gapTime == undefined) {

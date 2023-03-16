@@ -1,4 +1,6 @@
 require('./pack/page_extends') // 拓展Page构造函数
+// app.js
+import './pack/core/index'
 const watch = require("./pack/watch");
 
 App({
