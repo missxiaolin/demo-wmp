@@ -34,3 +34,13 @@ var wrapUrl = function (url) {
 // in wxml
 <image webp src="{{ tools.wrapUrl(url) }}"  />
 ~~~
+
+### 代码注入优化
+
+~~~
+// in app.json
+{
+  "lazyCodeLoading": "requiredComponents"
+}
+~~~
+
