@@ -31,5 +31,8 @@ Page({
     }
   },
 
+  toFun(e) {
+    console.log(e, '自动化测试结果')
+  }
 
 });

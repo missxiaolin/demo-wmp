@@ -1,8 +1,8 @@
 module.exports = {
   "pages": [
+    "pages/main/main",
     "pages/index/index",
     "pageB/index/index",
-    "pages/main/main",
     "pages/userCenter/index",
     "pages/community/community"
   ],
