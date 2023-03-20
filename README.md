@@ -17,6 +17,7 @@ npm run build
 - 语音输入，文本翻译插件 https://github.com/Tencent/Face2FaceTranslator/
 - 可将HTML、Markdown转为微信小程序WXML https://github.com/sbfkcel/towxml
 - 小程序富文本组件 https://github.com/jin-yufeng/mp-html
+- 自动化测试 https://www.npmjs.com/package/miniprogram-automator
 
 ### 图片渲染优化
 
