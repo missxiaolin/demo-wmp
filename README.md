@@ -7,3 +7,7 @@
 ~~~
 npm run build
 ~~~
+
+### 组件
+
+- 长列表组件 https://github.com/wechat-miniprogram/recycle-view
