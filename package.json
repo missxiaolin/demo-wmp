@@ -17,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "file-save": "^0.2.0"
+    "file-save": "^0.2.0",
+    "miniprogram-recycle-view": "^0.1.5"
   }
 }
