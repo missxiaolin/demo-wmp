@@ -1,3 +1,6 @@
 <view>
-  <view class="user-motto" bindtap="toFun">点击测试</view>
+  <view class="user-motto" bindtap="toFun">测试</view>
+  <view class="usermotto">
+    <text class="user-motto" bind:tap="tapFn">{{motto}}</text>
+  </view>
 </view>

@@ -5,7 +5,8 @@ const app = getApp();
 Page({
   behaviors: [loginBehavior],
   data: {
-    user: ''
+    user: '',
+    motto: 'Hello World',
   },
   watch: {
     user: (newVal, old) => {
@@ -32,7 +33,7 @@ Page({
   },
 
   toFun(e) {
-    console.log(e, '自动化测试结果')
+    console.log(e,'测试自动化结果')
   }
 
 });
