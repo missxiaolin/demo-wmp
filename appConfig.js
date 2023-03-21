@@ -1,5 +1,6 @@
 module.exports = {
     "pages": [
+        "pages/swiperX/index",
         "pages/example/index",
         "pages/main/main",
         "pages/index/index",
