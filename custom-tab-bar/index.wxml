@@ -2,6 +2,6 @@
     <view class="item" wx:for="{{list}}" wx:key="id" data-path="{{item.pagePath}}" data-key="{{item.key}}" bindtap="switchTab">
         <image wx:if="{{item.key == selected}}" class="icon" src="{{item.selectedIconPath}}" />
         <image wx:else class="icon" src="{{item.iconPath}}" />
-        <text class="{{item.key == selected ? 'active' : ''}}">{{item.text}}</text>
+        <text class="text {{item.key == selected ? 'active' : ''}}">{{item.text}}</text>
     </view>
 </view>
