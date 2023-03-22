@@ -1,66 +1,30 @@
-// pages/swiperY/index.js
+const DEFAULT_PAGE = 0;
+
 Page({
+    startPageY: 0,
+    currentView: DEFAULT_PAGE,
+    data: {
+        toView: `card_${DEFAULT_PAGE}`,
+        list: ['Javascript', 'Typescript', 'Java', 'PHP', 'Go']
+    },
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
+    touchStart(e) {
+        this.startPageY = e.changedTouches[0].pageY;
+    },
 
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
-  }
+    touchEnd(e) {
+        const moveY = e.changedTouches[0].pageY - this.startPageY;
+        console.log(moveY)
+        const maxPage = this.data.list.length - 1;
+        if (Math.abs(moveY) >= 150) {
+            if (moveY > 0) {
+                this.currentView = this.currentView !== 0 ? this.currentView - 1 : 0;
+            } else {
+                this.currentView = this.currentView !== maxPage ? this.currentView + 1 : maxPage;
+            }
+        }
+        this.setData({
+            toView: `card_${this.currentView}`
+        });
+    }
 })

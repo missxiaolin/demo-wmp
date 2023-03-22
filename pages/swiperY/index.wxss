@@ -1,1 +1,27 @@
-/* pages/swiperY/index.wxss */
+page {
+    overflow: hidden;
+    background: #0D1740;
+}
+
+.scroll-box {
+    height: 105vh;
+}
+
+.card-box {
+    width: 100%;
+    min-height: 100vh;
+    display: inline-block;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    height: 80vh;
+    width: 80vw;
+    margin: 5vh 10vw;
+    font-size: 40px;
+    background: #F8F2DC;
+    border-radius: 4px;
+}

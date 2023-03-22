@@ -1,2 +1,10 @@
-<!--pages/swiperY/index.wxml-->
-<text>pages/swiperY/index.wxml</text>
+<scroll-view class="scroll-box" scroll-y="true" scroll-with-animation
+  scroll-into-view="{{toView}}"
+  bindtouchstart="touchStart"
+  bindtouchend="touchEnd">
+    <view wx:for="{{list}}" wx:key="id" class="card-box" id="card_{{index}}">
+      <view class="card">
+        <text>{{item}}</text>
+      </view>
+    </view>
+</scroll-view>
