@@ -14,8 +14,12 @@ Page({
 
     touchEnd(e) {
         const moveY = e.changedTouches[0].pageY - this.startPageY;
-        console.log(moveY)
         const maxPage = this.data.list.length - 1;
+        if ((moveY > 0 && this.currentView == 0) || (maxPage == this.currentView)) {
+          return
+        }
+
+        
         if (Math.abs(moveY) >= 150) {
             if (moveY > 0) {
                 this.currentView = this.currentView !== 0 ? this.currentView - 1 : 0;
