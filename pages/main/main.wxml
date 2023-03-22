@@ -4,3 +4,4 @@
     <text class="user-motto" bind:tap="tapFn">{{motto}}</text>
   </view>
 </view>
+<toast toast="{{$toast}}" />

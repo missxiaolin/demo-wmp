@@ -1,9 +1,9 @@
 module.exports = {
     "pages": [
+        "pages/main/main",
         "pages/swiperY/index",
         "pages/swiperX/index",
         "pages/example/index",
-        "pages/main/main",
         "pages/index/index",
         "pageB/index/index",
         "pages/userCenter/index",

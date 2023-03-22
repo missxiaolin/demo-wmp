@@ -1,4 +1,5 @@
 {
   "usingComponents": {
+    "toast": "/components/toast/index"
   }
 }

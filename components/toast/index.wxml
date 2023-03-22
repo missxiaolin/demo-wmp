@@ -1,0 +1,3 @@
+<view class="wrap"  wx:if="{{!!toast && toast.show == true}}">
+  {{toast.text}}
+</view>
