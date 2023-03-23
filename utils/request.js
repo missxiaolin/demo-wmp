@@ -14,6 +14,8 @@ class Request {
     this.header = {
       "Content-Type": "application/json",
     };
+    this.beforeRequest = null
+    this.afterRequest = null
   }
 
   /**
@@ -21,6 +23,7 @@ class Request {
    * @param {*} param0
    */
   request({ url, data, method, timeout = 10000 }) {
+    this.beforeRequest && typeof this.beforeRequest === 'function' && this.beforeRequest(this)
     return new Promise((resolve, reject) => {
       this._request(
         url,
@@ -73,7 +76,6 @@ class Request {
       dataType: "json",
       timeout: timeout,
       success: (res) => {
-        console.log(url, res)
         // token 失效 的编码需要补充
         if ([700].indexOf(res.data.code) > -1) {
           this.userLogin(() => {
@@ -81,6 +83,7 @@ class Request {
           });
           return false;
         }
+        this.afterRequest && typeof this.afterRequest === 'function' && this.afterRequest(res)
         resolve(res.data);
       },
       fail: (res) => {
