@@ -1,0 +1,6 @@
+<!-- 有竖屏和横屏绘制，可切换 -->
+<!-- 绘制时如背景页面是长页面可滑动的情况，滑动画布会移动， 可设置最外层容器catchtouchmove="true" -->
+<canvas type='2d' id="canvas-vertical" disable-scroll="true" class="cavas" catchtouchstart="catchtouchstart" catchtouchmove="catchtouchmove" catchtouchend="catchtouchend"></canvas>
+<canvas type='2d' id="canvas-level" class="cavas" catchtouchstart="catchtouchstart" catchtouchmove="catchtouchmove" catchtouchend="catchtouchend"></canvas>
+
+<view bindtap="canvasToImg">生成</view>

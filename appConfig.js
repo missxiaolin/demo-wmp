@@ -1,5 +1,6 @@
 module.exports = {
     "pages": [
+        "pages/signName/index",
         "pages/main/main",
         "pages/swiperY/index",
         "pages/swiperX/index",
