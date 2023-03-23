@@ -83,12 +83,14 @@ class Request {
           });
           return false;
         }
-        this.afterRequest && typeof this.afterRequest === 'function' && this.afterRequest(res)
         resolve(res.data);
       },
       fail: (res) => {
         reject(res);
       },
+      complete: (res) => {
+        this.afterRequest && typeof this.afterRequest === 'function' && this.afterRequest(res)
+      }
     });
   }
 
