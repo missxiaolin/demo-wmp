@@ -1,6 +1,9 @@
-<!-- 有竖屏和横屏绘制，可切换 -->
-<!-- 绘制时如背景页面是长页面可滑动的情况，滑动画布会移动， 可设置最外层容器catchtouchmove="true" -->
-<canvas type='2d' id="canvas-vertical" disable-scroll="true" class="cavas" catchtouchstart="catchtouchstart" catchtouchmove="catchtouchmove" catchtouchend="catchtouchend"></canvas>
-<canvas type='2d' id="canvas-level" class="cavas" catchtouchstart="catchtouchstart" catchtouchmove="catchtouchmove" catchtouchend="catchtouchend"></canvas>
-
-<view bindtap="canvasToImg">生成</view>
+<view class='container'>
+  <!-- 签名画布 -->
+  <canvas class="canvas" id="canvas" canvas-id="canvas" disable-scroll="true" bindtouchstart="canvasStart" bindtouchmove="canvasMove" bindtouchend="canvasEnd" touchcancel="canvasEnd" binderror="canvasIdErrorCallback">
+  </canvas>
+  <view class='buttonBox'>
+    <button bindtap='clickMe' class='addbutton' open-type="getuserinfo">点击我生成图片保存相册</button>
+    <button type="default" class='delbutton' bindtap="cleardraw">清除</button>
+  </view>
+</view>

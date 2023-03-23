@@ -1,1 +1,21 @@
-/* pages/signName/index.wxss */
+.canvas {
+  width: 100%;
+  height: 93%;
+  border-bottom: 1rpx solid #e2e2e2e2;
+  position: fixed;
+  box-sizing: border-box;
+}
+
+.imageCanvas {
+  width: 100%;
+  height: 300rpx;
+}
+
+.buttonBox {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}

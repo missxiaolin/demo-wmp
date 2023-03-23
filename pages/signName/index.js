@@ -1,121 +1,121 @@
-// pages/signName/index.js
+// canvas 全局配置
+var context = null;
+var isButtonDown = false;
+var arrx = [];
+var arry = [];
+var arrz = [];
+var canvasw = 0;
+var canvash = 0;
+//注册页面
 Page({
+  canvasIdErrorCallback: function (e) {
+    console.error(e.detail.errMsg)
+  },
+  //开始
+  canvasStart: function (event) {
+    isButtonDown = true;
+    arrz.push(0);
+    arrx.push(event.changedTouches[0].x);
+    arry.push(event.changedTouches[0].y);
 
-  /**
-   * 页面的初始数据
-   */
+  },
   data: {
-
+    src: "",
+    img: "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=578899140,1412678472&fm=27&gp=0.jpg",
+    rpx: ''
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
+  onLoad: function (options) {
+    var that = this
+    // 使用 wx.createContext 获取绘图上下文 context
+    context = wx.createCanvasContext('canvas');
+    context.beginPath()
+    context.setStrokeStyle('#000000');
+    context.setLineWidth(4);
+    context.setLineCap('round');
+    context.setLineJoin('round');
 
+    // context.drawImage('../../images/img111.png', 0, 0, canvasw, 500);
+    context.draw();
   },
 
-  onShow() {
-    this.initCanvas()
-    // this.initCanvas('canvas-level')
-  },
+  //过程
+  canvasMove: function (event) {
+    var that = this
+    if (isButtonDown) {
+      arrz.push(1);
+      console.log(event)
+      arrx.push(event.changedTouches[0].x);
+      arry.push(event.changedTouches[0].y);
+    };
 
-  initCanvas(canvasId = 'canvas-vertical') {
-    this.canvasId = canvasId
-    const nodeId = '#' + canvasId
-    wx.createSelectorQuery()
-      .select(nodeId) // 在 WXML 中填入的 id
-      .fields({
-        node: true,
-        size: true
-      })
-      .exec(res => {
-        console.log(res, 'res------')
-        // Canvas 对象
-        const canvas = res[0].node
-        this.canvas = canvas
-        // Canvas 画布的实际绘制宽高
-        const renderWidth = res[0].width
-        const renderHeight = res[0].height
-        // Canvas 绘制上下文
-        const ctx = canvas.getContext('2d')
-        this.ctx = ctx
+    for (var i = 0; i < arrx.length; i++) {
+      if (arrz[i] == 0) {
+        context.moveTo(arrx[i], arry[i])
+      } else {
+        context.lineTo(arrx[i], arry[i])
+      };
 
-        // 初始化画布大小
-        const dpr = wx.getWindowInfo().pixelRatio
-        canvas.width = renderWidth * dpr
-        canvas.height = renderHeight * dpr
-        this.width = canvas.width
-        this.height = canvas.height
-        ctx.scale(dpr, dpr)
-        this.isDrawed = false
-      })
-  },
-  catchtouchstart(e) {
-    // 竖屏与横屏绘画位置计算
-    if (this.canvasId === 'canvas-vertical') {
-      this.ctx.moveTo(e.changedTouches[0].clientX - e.currentTarget.offsetLeft, e.changedTouches[0].clientY - e.currentTarget.offsetTop)
-    } else {
-      this.ctx.moveTo(e.changedTouches[0].clientX, e.changedTouches[0].clientY)
-    }
-  },
-  catchtouchmove(e) {
-    // if (this.drawState == "stop") { return }
-    // this.drawState = "ing"
-    if (e.touches.length > 1) {
-      return
-    }
-    this.ctx.strokeStyle = '#000000'
-    this.ctx.lineWidth = 3
-    this.ctx.lineCap = 'round'
-    this.ctx.lineJoin = 'round'
-    if (this.canvasId === 'canvas-vertical') {
-      this.ctx.lineTo(e.changedTouches[0].clientX - e.currentTarget.offsetLeft, e.changedTouches[0].clientY - e.currentTarget.offsetTop)
-    } else {
-      this.ctx.lineTo(e.changedTouches[0].clientX, e.changedTouches[0].clientY)
-    }
-    if (this.canvasId === 'canvas-vertical') {
-      this.ctx.moveTo(e.changedTouches[0].clientX - e.currentTarget.offsetLeft, e.changedTouches[0].clientY - e.currentTarget.offsetTop)
-    } else {
-      this.ctx.moveTo(e.changedTouches[0].clientX, e.changedTouches[0].clientY)
-    }
-    this.ctx.stroke()
-  },
+    };
+    context.clearRect(0, 0, canvasw, canvash);
+    context.setStrokeStyle('#000000');
+    context.setLineWidth(4);
+    context.setLineCap('round');
+    context.setLineJoin('round');
+    context.stroke();
 
-  canvasToImg() {
-    const id = this.canvasId
-    let picUrl
-    // if (this.drawState == "init") { return }
-    const that = this
-    this.ctx.fillStyle = '#F7F7F7'
-    if (this.isDrawed) {
-      setTimeout(() => {
-        wx.canvasToTempFilePath({
-          fileType: 'png',
-          canvas: this.canvas,
-          success: res => {
-            const obj = {}
-            // 让后端进行图片的翻转，因为横屏时绘制的签名是横的
-            if (that.canvasId === 'canvas-vertical') {
-              obj.isFlip = 0
-              obj.angle = 0
-            } else {
-              obj.isFlip = 1 // 是否翻转
-              obj.angle = -90 // 翻转角度
-            }
-            uploadPicture(res.tempFilePath, 'relation', obj).then(res => {
-              // that.drawState = "stop"
-              that.isShow = false
-              picUrl = res
-              // that.clearRefer()
-              that.$apply()
-              that.$emit('ok', res)
-            })
+    context.draw(false);
+  },
+  // 点击保存图片
+  clickMe: function () {
+    wx.canvasToTempFilePath({
+      canvasId: 'canvas',
+      fileType: 'jpg',
+      success: function (res) {
+        console.log(res)
+        wx.saveImageToPhotosAlbum({
+          filePath: res.tempFilePath,
+          success(res) {
+            console.log(res)
+            wx.hideLoading();
+            wx.showToast({
+              title: '保存成功',
+            });
+            // //存入服务器
+            // wx.uploadFile({
+            //   url: 'a.php', //接口地址
+            //   filePath: res.tempFilePath,
+            //   name: 'file',
+            //   formData: {                                 //HTTP 请求中其他额外的 form data 
+            //     'user': 'test'
+            //   },
+            //   success: function (res) {
+            //     console.log(res);
+
+            //   },
+            //   fail: function (res) {
+            //     console.log(res);
+            //   },
+            //   complete: function (res) {
+            //   }
+            // });
+          },
+          fail() {
+            wx.hideLoading()
           }
         })
-      })
-    } else {
-      this.toast('请进行签名')
-    }
+      }
+    })
   },
+  canvasEnd: function (event) {
+    isButtonDown = false;
+  },
+  cleardraw: function () {
+    //清除画布
+    arrx = [];
+    arry = [];
+    arrz = [];
+    context.draw(false);
+  },
+
 })
