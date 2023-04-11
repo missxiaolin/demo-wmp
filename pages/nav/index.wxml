@@ -1,0 +1,3 @@
+<view class="pages">
+  <navBar background='#fff' searchBar="{{true}}" bindsearch='search' />
+</view>
