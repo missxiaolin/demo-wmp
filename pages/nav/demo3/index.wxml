@@ -1,2 +1,6 @@
-<!--pages/nav/demo3/index.wxml-->
-<text>pages/nav/demo3/index.wxml</text>
+<view class='main-wraper'>
+    <navBar title='详情页' background='#fff' back="{{true}}" bindback="handlerGobackClick"></navBar>
+    <view class='main'>
+        <view class='p'>详情页</view>
+    </view>
+</view>

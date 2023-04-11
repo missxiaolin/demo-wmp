@@ -1,2 +1,6 @@
-<!--pages/nav/demo2/index.wxml-->
-<text>pages/nav/demo2/index.wxml</text>
+<view class='main-wraper'>
+    <navBar title='有返回和home' background='#fff' back="{{true}}" home="{{true}}" bindback="handlerGobackClick" bindhome="handlerGohomeClick"></navBar>
+    <view class='main'>
+        <view class='p'>有返回和home的页面</view>
+    </view>
+</view>
