@@ -1,6 +1,16 @@
 module.exports = {
   "pages": [
     "pages/nav/index",
+    "pages/nav/demo1/index",
+    "pages/nav/demo2/index",
+    "pages/nav/demo3/index",
+    "pages/nav/demo4/index",
+    "pages/nav/demo5/index",
+    "pages/nav/demo6/index",
+    "pages/nav/demo7/index",
+    "pages/nav/demo8/index",
+    "pages/nav/demo9/index",
+    "pages/nav/demo10/index",
     "pages/signName/index",
     "pages/main/main",
     "pages/swiperY/index",
