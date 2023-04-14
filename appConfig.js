@@ -1,5 +1,6 @@
 module.exports = {
   "pages": [
+    "pages/painter/index",
     "pages/lottery/index",
     "pages/nav/index",
     "pages/nav/demo1/index",

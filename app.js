@@ -21,6 +21,9 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    systemInfo: {
+      ...wx.getSystemInfoSync(),
+    },
   }
 })
