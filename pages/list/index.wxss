@@ -1,0 +1,6 @@
+/**index.wxss**/
+
+.item-list{
+  text-align: center;
+  height: 500rpx;
+}

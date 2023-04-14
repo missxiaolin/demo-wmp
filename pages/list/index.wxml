@@ -1,0 +1,21 @@
+<!-- index.wxml -->
+<wxs module='filter'>
+  var includesList = function(list,currentIndex){
+    if(list){
+     return list.indexOf(currentIndex) > -1
+    }
+  }
+  module.exports.includesList =  includesList;
+</wxs>
+<view class="container">
+  <view wx:for="{{list}}" wx:for-index="pageNum" id="item{{pageNum}}" wx:key="pageNum">
+    <block wx:if="{{filter.includesList(visualIndex,pageNum)}}">
+      <view class="item-list" wx:for="{{item}}">
+        <text class="">{{item.idx}}</text>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="item-visible" style="height:{{pageHeight[pageNum]}}px"></view>
+    </block>
+  </view>
+</view>
